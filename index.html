@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Gallery of Art</title>
+    <style>
+        :root {
+            --primary-color: #101010;
+            --secondary-color: #00ADB5; /* Modern teal accent */
+            --accent-color: #393E46;   /* Darker teal for hover */
+            --background-color: #f9f9f9;
+            --card-bg-color: #ffffff;
+            --text-color: #333333;
+            --font-family: 'Poppins', sans-serif;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 4px var(--shadow-color);
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        header .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        header .actions button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        header .actions button:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        .hero {
+    position: relative;
+    height: 40vh; /* Reduced height for a thinner appearance */
+    text-align: center;
+    background-image: url('visual/starry.jpg'); /* Replace with your image file */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for separation */
+}
+
+.hero .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Add overlay for better readability */
+    padding: 20px 40px;
+    border-radius: 10px;
+}
+
+.hero h1 {
+    font-size: 2.5rem; /* Slightly smaller font for a thinner section */
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.1rem; /* Adjusted text size */
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hero button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Adjusted button padding */
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.hero button:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+
+        .favorites {
+            padding: 50px 30px;
+        }
+
+        .favorites h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .favorites .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .favorites .grid img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 2px 4px var(--shadow-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .favorites .grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px var(--shadow-color);
+        }
+
+        .favorites .actions {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .favorites .actions button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .favorites .actions button:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        .download-section {
+            padding: 50px 30px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background-color: #e9f7f8;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px var(--shadow-color);
+            margin: 50px auto;
+            max-width: 1200px;
+        }
+
+        .download-section img {
+            width: 40%;
+            border-radius: 10px;
+        }
+
+        .download-section .info {
+            flex: 1;
+        }
+
+        .download-section .info h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .download-section .info p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .download-section .info button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .download-section .info button:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        .explore {
+            padding: 50px 30px;
+        }
+
+        .explore h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .explore .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .explore .card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px var(--shadow-color);
+            background-color: var(--card-bg-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .explore .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px var(--shadow-color);
+        }
+
+        .explore .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .explore .card h3 {
+            padding: 15px;
+            font-size: 1.2rem;
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">LJ's Gallery of Art</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="visualart.html">Visual</a>
+            <a href="performing.html">Performing</a>
+            <a href="literary.html">Literary</a>
+            <a href="about.html">About Us</a>
+        </nav>
+        <div class="actions">
+            <button onclick="location.href='ref.html'">References </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="overlay">
+            <h1>Welcome to Art Appreciation</h1>
+            <p>Explore the beauty of Visual Arts, Performing Arts, and Literary Arts with a touch of Filipino culture.</p>
+            <button onclick="location.href='about.html'">About Us </button>
+        </div>
+    </section>
+    
+
+    <section class="favorites">
+        <h2>A Few of Our Favorites</h2>
+        <div class="grid">
+            <img src="d:\3rd YEAR - FIrst Sem\Art Appreciation\Website\2\5.png" alt="Girl with a Pearl Earring ">
+            <img src="d:\3rd YEAR - FIrst Sem\Art Appreciation\Website\favo\2.png" alt="Artwork 2">
+            <img src="d:\3rd YEAR - FIrst Sem\Art Appreciation\Website\favo\4.png" alt="Artwork 3">
+            <img src="d:\3rd YEAR - FIrst Sem\Art Appreciation\Website\favo\3.png" alt="Artwork 4">
+            <img src="d:\3rd YEAR - FIrst Sem\Art Appreciation\Website\2\6.png" alt="Artwork 5">
+            <img src="d:\3rd YEAR - FIrst Sem\Art Appreciation\Website\favo\1.png" alt="Artwork 6">
+        </div>
+        <div class="actions">
+            <button>Highlights</button>
+        </div>
+    </section>
+
+    <section class="download-section">
+        <img src="d:\3rd YEAR - FIrst Sem\Art Appreciation\Website\adam.png" alt="Artwork">
+        <div class="info">
+            <h3>The Creation of Adam</h3>
+            <p>Fresco painting by Michelangelo.</p>
+            <button onclick="location.href='visualart.html'">Visual Art</button>
+        </div>
+    </section>
+
+    <section class="explore">
+        <h2>Explore the Collection</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="d:\3rd YEAR - FIrst Sem\Art Appreciation\Website\expression.png" alt="Card 1">
+                <h3>Stories from the Collection</h3>
+            </div>
+            </div>
+            </section>
+            </body>
+            </html>
+            <footer>
+                <div class="footer-container">
+                    <div class="footer-section">
+                        <h3>About Us</h3>
+                        <p>Exploring the beauty of visual arts through history and culture.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="visualart.html">Visual</a></li>
+                            <li><a href="lit.html">Literary</a></li>
+                            <li><a href="performing.html">Performing</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Follow Us</h3>
+                        <ul class="social-links">
+                            <li><a href="https://www.facebook.com/">Facebook</a></li>
+                            <li><a href="https://www.instagram.com/">Instagram</a></li>
+                            <li><a href="https://x.com/?lang=en">Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Visual Art. All rights reserved.</p>
+                </div>
+            </footer>
+            
+            <style>
+                footer {
+                    background-color: var(--primary-color);
+                    color: white;
+                    padding: 30px 20px;
+                    text-align: center;
+                    margin-top: 40px;
+                }
+            
+                .footer-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    gap: 20px;
+                }
+            
+                .footer-section {
+                    max-width: 300px;
+                    text-align: left;
+                }
+            
+                .footer-section h3 {
+                    font-size: 1.2rem;
+                    margin-bottom: 10px;
+                    border-bottom: 2px solid var(--secondary-color);
+                    display: inline-block;
+                    padding-bottom: 5px;
+                }
+            
+                .footer-section p {
+                    font-size: 0.9rem;
+                    line-height: 1.5;
+                }
+            
+                .footer-section ul {
+                    list-style: none;
+                    padding: 0;
+                }
+            
+                .footer-section ul li {
+                    margin-bottom: 8px;
+                }
+            
+                .footer-section ul li a {
+                    color: white;
+                    text-decoration: none;
+                    font-size: 0.9rem;
+                    transition: color 0.3s;
+                }
+            
+                .footer-section ul li a:hover {
+                    color: var(--secondary-color);
+                }
+            
+                .footer-bottom {
+                    margin-top: 20px;
+                    font-size: 0.8rem;
+                    opacity: 0.8;
+                }
+            </style>
+
+

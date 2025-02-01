@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Art</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        
+        :root {
+            --primary-font: 'Playfair Display', serif;
+            --secondary-font: 'Poppins', sans-serif;
+            --primary-color: #101010;
+            --secondary-color: #00ADB5;
+            --accent-color: #393E46;
+            --background-color: #f9f9f9;
+            --text-color: #333333;
+            --card-bg-color: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --font-family: 'Poppins', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: var(--primary-font);
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-family: var(--primary-font);
+        }
+
+        .hero p {
+            font-family: var(--secondary-font);
+            font-size: 1.2rem;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        .gallery {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .gallery h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .gallery .grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 items per row */
+            gap: 20px;
+        }
+
+        .gallery .card {
+            background-color: var(--card-bg-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px var(--shadow-color);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px var(--shadow-color);
+        }
+
+        .gallery .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .gallery .card h3 {
+            padding: 10px;
+            font-size: 1rem;
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: var(--card-bg-color);
+            border-radius: 12px;
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two-column layout: Image + Details */
+            gap: 20px;
+            align-items: center;
+        }
+
+        .modal-content img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px var(--shadow-color);
+        }
+
+        .modal-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .modal-details h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .modal-details p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .modal-details button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .modal-details button:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Visual Art</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="performing.html">Performing</a>
+            <a href="literary.html">Literary</a>
+         
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-overlay">
+            <h1>Welcome to Art Appreciation</h1>
+            <p>Explore the beauty of Visual Arts, Performing Arts, and Literary Arts with a touch of Filipino culture.</p>
+            <a href="performing.html" class="hero-btn">Explore Performing</a>
+        </div>
+    </section>
+    
+    <style>
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: url('visual/wonder.png') center/cover no-repeat; /* Change this to your preferred image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+    
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 8px;
+        }
+    
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+    
+        .hero-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            background-color: var(--secondary-color);
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+    
+        .hero-btn:hover {
+            background-color: var(--accent-color);
+        }
+    </style>
+
+    <section class="gallery">
+        <h1>Visual Arts</h1>
+        <div class="grid">
+            <div class="card" onclick="showModal('visual/starry.jpg', 'Starry Night', 'Vincent van Gogh (1889)', 'The Starry Night is a post-impressionist masterpiece that depicts a swirling night sky over a quiet village, painted from Van Gogh’s asylum room in Saint-Rémy-de-Provence. Its expressive brushstrokes and vibrant contrast of blues and yellows symbolize the artist’s inner turmoil and his fascination with the beauty of the night.')">
+                <img src="d:\3rd YEAR - FIrst Sem\Art Appreciation\Website\visual\visual arts\1.png" alt="Starry Night">
+                <h3>Starry Night</h3>
+            </div>
+            <div class="card" onclick="showModal('visual/Lisa.jpg', 'Mona Lisa', 'Leonardo da Vinci (c. 1503–1506)', 'The Mona Lisa is a Renaissance portrait painting famous for its subject’s enigmatic smile, detailed sfumato technique, and mysterious expression. It is housed in the Louvre Museum and remains one of the most studied and visited artworks in history.')">
+                <img src="d:\3rd YEAR - FIrst Sem\Art Appreciation\Website\visual\visual arts\2.png" alt="Mona Lisa">
+                <h3>Mona Lisa</h3>
+            </div>
+            <div class="card" onclick="showModal('visual/scream.jpg', 'The Scream', 'Edvard Munch (1893)', 'The Scream is an expressionist painting that captures a figure with a haunting, anguished expression against a swirling red sky, representing existential dread. Its bold colors and distorted lines convey intense emotion, making it one of the most recognizable images in art history.')">
+                <img src="d:\3rd YEAR - FIrst Sem\Art Appreciation\Website\visual\visual arts\3.png" alt="The Scream">
+                <h3>The Scream</h3>
+            </div>
+            <div class="card" onclick="showModal('visual/memory.jpg', 'The Persistence of Memory', 'Salvador Dalí (1931)', 'The Persistence of Memory is a surrealist painting that features melting clocks in a barren landscape, symbolizing the fluidity of time and the unconscious mind. Dalí’s dreamlike imagery challenges perception, making this artwork one of the most recognizable in modern art.')">
+                <img src="d:\3rd YEAR - FIrst Sem\Art Appreciation\Website\visual\visual arts\4.png" alt="The Persistence of Memory">
+                <h3>The Persistence of Memory</h3>
+            </div>
+            <div class="card" onclick="showModal('visual/pearl.jpg', 'Girl with a Pearl Earring', 'Johannes Vermeer (c. 1665)', 'Often called the “Mona Lisa of the North,” Girl with a Pearl Earring is a portrait of a young girl in a blue and gold turban, with a striking gaze and luminous pearl earring. Vermeer’s mastery of light and color makes this painting a timeless and mysterious masterpiece.')">
+                <img src="d:\3rd YEAR - FIrst Sem\Art Appreciation\Website\visual\visual arts\5.png" alt="Girl with a Pearl Earring">
+                <h3>Girl with a Pearl Earring</h3>
+            </div>
+            <div class="card" onclick="showModal('visual/dam.webp', 'The Creation of Adam', 'Michelangelo (c. 1511–1512)', 'A fresco on the Sistine Chapel ceiling, The Creation of Adam depicts God extending his hand to give life to Adam, symbolizing divine connection. It is considered one of the greatest masterpieces of the High Renaissance, known for its dynamic composition and anatomical precision.')">
+                <img src="d:\3rd YEAR - FIrst Sem\Art Appreciation\Website\visual\visual arts\6.png" alt="The Creation of Adam">
+                <h3>The Creation of Adam</h3>
+            </div>
+            <div class="card" onclick="showModal('visual/g.jpg', 'Guernica ', ' Pablo Picasso (1937)', 'Guernica is a large-scale black-and-white painting that depicts the horrors of the Spanish Civil War, using distorted figures and chaotic composition to evoke suffering. As one of Picasso’s most famous works, it remains a powerful anti-war symbol and political statement.')">
+                <img src="d:\3rd YEAR - FIrst Sem\Art Appreciation\Website\visual\visual arts\7.png" alt="Guernica ">
+                <h3>Guernica </h3>
+            </div>
+            <div class="card" onclick="showModal('visual/venus.jpg', 'The Birth of Venus', 'Sandro Botticelli (c. 1484–1486)', 'The Birth of Venus portrays the Roman goddess Venus emerging from the sea on a shell, representing divine beauty and love in classical mythology. It is renowned for its elegant lines, flowing forms, and soft color palette, characteristic of the Early Renaissance.')">
+                <img src="d:\3rd YEAR - FIrst Sem\Art Appreciation\Website\visual\visual arts\8.png" alt="The Birth of Venus">
+                <h3>The Birth of Venus</h3>
+            </div>
+            <div class="card" onclick="showModal('visual/tsunami.jpg', 'The Great Wave off Kanagawa', ' Katsushika Hokusai (c. 1831)', 'The Great Wave off Kanagawa is a famous Japanese woodblock print from Hokusai’s series Thirty-Six Views of Mount Fuji, depicting a towering wave with Mount Fuji in the background. The artwork is celebrated for its dynamic composition, intricate linework, and symbolic representation of nature’s power and human resilience.')">
+                <img src="d:\3rd YEAR - FIrst Sem\Art Appreciation\Website\visual\visual arts\9.png" alt="The Great Wave off Kanagawa">
+                <h3>The Great Wave off Kanagawa</h3>
+            </div>
+            <div class="card" onclick="showModal('visual/go.jpg', 'American Gothic', 'Grant Wood (1930)', 'American Gothic is a famous American painting that depicts a stern-faced farmer and his daughter, standing in front of a gothic-style farmhouse, symbolizing Midwestern resilience. The artwork has become an iconic representation of rural America and has been widely parodied in popular culture.')">
+                <img src="d:\3rd YEAR - FIrst Sem\Art Appreciation\Website\visual\visual arts\10.png" alt="American Gothic">
+                <h3>American Gothic</h3>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal" id="artModal">
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Artwork">
+            <div class="modal-details">
+                <h3 id="modalTitle"></h3>
+                <p id="modalArtist"></p>
+                <p id="modalDescription"></p>
+                <button onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showModal(image, title, artist, description) {
+            document.getElementById('modalImage').src = image;
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalArtist').innerText = `Artist: ${artist}`;
+            document.getElementById('modalDescription').innerText = description;
+            document.getElementById('artModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('artModal').style.displa y = 'none';
+        }
+    </script>
+</body>
+</html>
+<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>Exploring the beauty of visual arts through history and culture.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lit.html">Literary</a></li>
+                <li><a href="performing.html">Performing</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <ul class="social-links">
+                <li><a href="https://www.facebook.com/">Facebook</a></li>
+                <li><a href="https://www.instagram.com/">Instagram</a></li>
+                <li><a href="https://x.com/?lang=en">Twitter</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Visual Art. All rights reserved.</p>
+    </div>
+</footer>
+
+<style>
+    footer {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 30px 20px;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 20px;
+    }
+
+    .footer-section {
+        max-width: 300px;
+        text-align: left;
+    }
+
+    .footer-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        border-bottom: 2px solid var(--secondary-color);
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    .footer-section p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 8px;
+    }
+
+    .footer-section ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s;
+    }
+
+    .footer-section ul li a:hover {
+        color: var(--secondary-color);
+    }
+
+    .footer-bottom {
+        margin-top: 20px;
+        font-size: 0.8rem;
+        opacity: 0.8;
+    }
+</style>

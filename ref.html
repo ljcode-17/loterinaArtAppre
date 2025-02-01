@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>References</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-font: 'Playfair Display', serif;
+            --secondary-font: 'Poppins', sans-serif;
+            --primary-color: #101010;
+            --secondary-color: #00ADB5;
+            --accent-color: #393E46;
+            --background-color: #f9f9f9;
+            --text-color: #333333;
+            --card-bg-color: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--secondary-font);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        .references-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background: var(--card-bg-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 8px var(--shadow-color);
+        }
+
+        .references-container h1 {
+            font-size: 2.5rem;
+            font-family: var(--primary-font);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .references-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .references-container li {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            padding: 10px;
+            border-left: 5px solid var(--secondary-color);
+            background: var(--background-color);
+            border-radius: 5px;
+            box-shadow: 0 2px 4px var(--shadow-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">References</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="visualart.html">Visual</a>
+            <a href="performing.html">Performing</a>
+            <a href="literary.html">Literary</a>
+            <a href="about.html">About Us</a>
+        </nav>
+    </header>
+
+    <section class="references-container">
+        <h1>Sources & References</h1>
+        <ul>
+            <li>Wikipedia, the free encyclopedia. (n.d.). https://www.wikipedia.org/</li>
+            <li>Pinterest. (n.d.). Pinterest. https://www.pinterest.com/</li>
+            <li>Encyclopedia Britannica | Britannica. (n.d.). Encyclopedia Britannica. https://www.britannica.com/</li>
+        </ul>
+    </section>
+</body>
+</html>
